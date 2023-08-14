@@ -65,7 +65,7 @@ function validateOptions(options) {
     if (!items) {
         throw new Error("no 'items' key provided to dndzone");
     }
-    const itemWithMissingId = items.find(item => !{}.hasOwnProperty.call(item, ITEM_ID_KEY));
+    const itemWithMissingId = items.find(item => !(ITEM_ID_KEY in item));
     if (itemWithMissingId) {
         throw new Error(`missing '${ITEM_ID_KEY}' property for item ${toString(itemWithMissingId)}`);
     }
